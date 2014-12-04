@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="Aquaponic">
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css'/>
+  <link rel='stylesheet', href='/css/style.css'/>
+  <script src='bower_components/angular/angular.js'></script>
+  <script src='bower_components/angular-route/angular-route.min.js'></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><%= title %></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <div class="navbar-form navbar-right btn-group"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" ng-controller="AppCtrl">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-lg-12">
+
+                <div class="alert alert-danger" ng-show="showErrorMessage" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span ng-bind="errorMessage"></span>
+                </div>
+
+                <a class="item btn btn-large btn-primary col-12 col-md-12 col-xs-12 col-sm-12 col-lg-12" ng-click="startFeeding()">
+                    <span class="center-block">startFeeding</span>
+                </a>
+
+                <a class="item btn btn-large btn-danger col-12 col-md-12 col-xs-12 col-sm-12 col-lg-12" ng-click="stopFeeding()">
+                    <span class="center-block">stopFeeding</span>
+                </a>
+
+
+                <a class="item btn btn-large btn-primary col-12 col-md-12 col-xs-12 col-sm-12 col-lg-12" ng-click="startPump()">
+                    <span class="center-block">startPump</span>
+                </a>
+
+                <a class="item btn btn-large btn-danger col-12 col-md-12 col-xs-12 col-sm-12 col-lg-12" ng-click="stopPump()">
+                    <span class="center-block">stopPump</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript">
+    ip = "<%=ip%>"
+</script>
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='/bower_components/jquery/dist/jquery.min.js'></script>
+<script src='/bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+<script src='js/app.js'></script>

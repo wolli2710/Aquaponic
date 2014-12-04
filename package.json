@@ -1,0 +1,30 @@
+{
+  "name": "Aquaponic",
+  "version": "0.0.0",
+  "description": "Aquaponic automatisation project",
+  "main": "server.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wolli2710/Aquaponic.git"
+  },
+  "author": "Wolfgang Vogl",
+  "license": "GNU AGPL v3.0",
+  "bugs": {
+    "url": "https://github.com/wolli2710/Aquaponic/issues"
+  },
+  "homepage": "https://github.com/wolli2710/Aquaponic",
+  "dependencies": {
+    "ejs": "^2.6.0",
+    "express": "^4.16.0",
+    "onoff": "^3.1.0",
+    "socket.io": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.7.3",
+    "jest": "^23.0",
+    "mocha": "^3.0.0"
+  }
+}
