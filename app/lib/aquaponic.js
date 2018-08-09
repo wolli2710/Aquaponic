@@ -24,7 +24,7 @@ var Aquaponic = function(){
     pump.stop();
   }
 
-  startPumping = function(){
+  var startPumping = function(){
     var ms = config.pump.duration;
     var currentMilliseconds = (ms != null) ? ms : (60 * 1000);
 
@@ -34,7 +34,7 @@ var Aquaponic = function(){
     }, currentMilliseconds);
   };
 
-  stopPumping = function(){
+  var stopPumping = function(){
     var ms = config.pump.duration;
     var currentMilliseconds = (ms != null) ? ms : (60 * 1000);
 
@@ -43,11 +43,12 @@ var Aquaponic = function(){
       startPumping();
     }, currentMilliseconds);
   };
+
+  startPumping();
 };
 
 module.exports = {
   init: function(){
-    startPumping();
     return new Aquaponic();
   }
 };
