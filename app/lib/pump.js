@@ -7,7 +7,7 @@ var Pump = function(gpioPinNumber){
 };
 
 Pump.prototype = {
-  maxTime: 100000
+  maxTime: 6000000
 };
 
 Pump.prototype.stop = function(){
@@ -16,15 +16,14 @@ Pump.prototype.stop = function(){
   this.pin.writeSync( 0);
 };
 
-Pump.prototype.start = function(timeout){
+Pump.prototype.start = function(){
   console.log("started pump")
   var that = this;
 
   if(this.on === false){
     this.on = true;
     this.pin.writeSync( 1 );
-    var currentTimeout = (timeout > this.maxTime) ? this.maxTime : timeout;
-    setTimeout( function(){ that.stop() }, currentTimeout );
+    setTimeout( function(){ that.stop() }, this.maxTime );
   } else {
     console.log("already started");
   }

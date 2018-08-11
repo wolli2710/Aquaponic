@@ -5,7 +5,8 @@ module.exports = {
   },
   pump: {
     timeout:  3600000,
-    duration: 1800000
+    wateringDuration: 1800000,
+    pauseDuration: 11000000
   },
   feeder: {
     timesPerDay: 2
