@@ -25,7 +25,7 @@ var Aquaponic = function(){
   }
 
   var startPumping = function(){
-    var ms = config.pump.duration;
+    var ms = config.pump.wateringDuration;
     var currentMilliseconds = (ms != null) ? ms : (60 * 1000);
 
     startPump();
@@ -35,7 +35,7 @@ var Aquaponic = function(){
   };
 
   var stopPumping = function(){
-    var ms = config.pump.duration;
+    var ms = config.pump.wateringDuration;
     var currentMilliseconds = (ms != null) ? ms : (60 * 1000);
 
     stopPump();
