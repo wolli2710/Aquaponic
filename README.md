@@ -29,4 +29,23 @@ The program running on the Raspberry Pi is written in node.js for the backend an
 | 1 | [Drill](https://www.amazon.de/Bosch-2608596305-Pro-Holzspiralbohrer-%C3%98/dp/B0009W86IC/ref=sr_1_6?s=industrial&ie=UTF8&qid=1529962344&sr=1-6&keywords=Bohrer+8mm) | 4.50 | 4.50 |
 ||||321.14|
 
+## Setup
+
+* Download the NOOBS package for your Raspberry Pi (tested with 2.8.1) https://github.com/raspberrypi/noobs/releases
+* Unzip the folder and copy, not the folder, but the content of the folder to your SD Card.
+* Plugin your Raspberry Pi after putting the SD Card into it.
+* Choose an OS that fits your needs (tested with Raspian) and follow the installation steps on your screen.
+* Boot your fresh installation, change the password of the standarduser pi and activate ssh: https://www.youtube.com/watch?v=RgUM8ulMfHE
+* Connect your Raspberry Pi to the WiFi
+Note: I had to remove the line **link local 169.x.x.x** in the file **/etc/networks** from my fresh installation, to get a correct IP adress from my router.
+* Reboot your Raspberry Pi
+* Change to the Aquaponic directory. Then update the deploy.sh in the root of the project to your needs. Also change the file **app/config/server.js** accordingly.
+* Open a commandline on your Computer and execute **./deploy.sh**
+* Allow connecting and enter the password of your user pi that you set previously.
+* On your Raspberry Pi change to the directory **~/Desktop/Aquaponic** and execute **./setup.sh** from the commandline.
+* Do the wiring of the pump and feeder as described within the Wiring section of this document.
+* Now reboot your Raspberry Pi and execute **npm install** from within the folder **~/Desktop/Aquaponic**
+* Restart pm2 from the console **pm2 restart aquaponic**
+* Open **localhost:8080** on the browser of your Raspberry Pi and check if everything works.
+
 ## Wiring
