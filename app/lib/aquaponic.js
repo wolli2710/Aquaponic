@@ -28,7 +28,7 @@ var Aquaponic = function(){
 
   var startPumping = function(){
     var ms = config.pump.wateringDuration;
-    var currentMilliseconds = (ms != null) ? ms : (60 * 1000);
+    var currentMilliseconds = (ms != null) ? ms : config.pump.maxTime;
 
     aquaponic.startPump();
     setTimeout(function () {
@@ -37,8 +37,8 @@ var Aquaponic = function(){
   };
 
   var stopPumping = function(){
-    var ms = config.pump.wateringDuration;
-    var currentMilliseconds = (ms != null) ? ms : (60 * 1000);
+    var ms = config.pump.pauseDuration;
+    var currentMilliseconds = (ms != null) ? ms : config.pump.maxTime;
 
     aquaponic.stopPump();
     setTimeout(function () {
