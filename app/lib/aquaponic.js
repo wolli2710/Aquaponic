@@ -4,7 +4,9 @@ var config = require('../config/server.js');
 
 var Aquaponic = function(){
 
-  var startFeeding = function(){
+  var aquaponic = this;
+
+  this.startFeeding = function(){
     // 4076 are 360 degrees
     var counter = 4076 * 20;
     feeder.steps(counter, function(pins) {
@@ -12,15 +14,15 @@ var Aquaponic = function(){
     });
   };
 
-  var stopFeeding = function(){
+  this.stopFeeding = function(){
     feeder.reset();
   };
 
-  var startPump = function() {
+  this.startPump = function() {
     pump.start();
   }
 
-  var stopPump = function() {
+  this.stopPump = function() {
     pump.stop();
   }
 
@@ -28,7 +30,7 @@ var Aquaponic = function(){
     var ms = config.pump.wateringDuration;
     var currentMilliseconds = (ms != null) ? ms : (60 * 1000);
 
-    startPump();
+    aquaponic.startPump();
     setTimeout(function () {
       stopPumping();
     }, currentMilliseconds);
@@ -38,7 +40,7 @@ var Aquaponic = function(){
     var ms = config.pump.wateringDuration;
     var currentMilliseconds = (ms != null) ? ms : (60 * 1000);
 
-    stopPump();
+    aquaponic.stopPump();
     setTimeout(function () {
       startPumping();
     }, currentMilliseconds);
