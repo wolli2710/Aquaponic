@@ -23,4 +23,10 @@ app.controller('AppCtrl', function ($scope) {
         var d = {"task":"stopPump"};
         socket.emit("stopPump", d);
     }
+
+    socket.on("logger", function (data) {
+      $scope.$apply(function () {
+        $scope.logger = data;
+      });
+    })
 });
