@@ -40,6 +40,7 @@ The program running on the Raspberry Pi is written in node.js for the backend an
 Note: I had to remove the line **link local 169.x.x.x** in the file **/etc/networks** from my fresh installation, to get a correct IP adress from my router.
 * Reboot your Raspberry Pi
 * Change to the Aquaponic directory. Then update the deploy.sh in the root of the project to your needs. Also change the file **app/config/server.js** accordingly.
+* Enable the needed interfaces (ssh, serial, remote gpio) shown here: https://www.youtube.com/watch?v=RgUM8ulMfHE
 * Open a commandline on your Computer and execute **./deploy.sh**
 * Allow connecting and enter the password of your user pi that you set previously.
 * On your Raspberry Pi change to the directory **~/Desktop/Aquaponic** and execute **./setup.sh** from the commandline.
